@@ -1,0 +1,312 @@
+.navbar{
+  margin-top: 1rem;
+  height: 6vh;
+  width: 25%;
+  display: flex;
+  margin-inline: auto;
+  border-radius: 25px;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(180deg, #1a1a2e, #16213e);
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.imgNav{
+  background-color: #d3d5d8;
+  border-radius: 25px;
+  padding: 2px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.inputSearch {
+  width: 0;
+  padding-left: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+  transition: all 0.3s;
+  color: #1a1a2e;
+}
+
+.searchBar:hover .inputSearch,  .searchBar:focus-within .inputSearch{
+  width: 160px;
+  padding-left: 5px;
+}
+
+.pickBG{
+  position: absolute;
+}
+
+.navlink{
+  color: #eeeeee;
+  border-radius: 25px;
+  padding: 1px;
+  display: flex;
+  background-color: #d3d5d8;
+}
+
+.eeeee {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+  width: 4rem;
+  background: linear-gradient(180deg, #1a1a2e, #16213e);
+  padding-block: 1rem 7rem;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 5;
+}
+
+.logo{
+  margin-inline: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.imgIcon {
+  padding: 0.2rem;
+  background-color: #d3d5d8;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.asideLink:hover .imgIcon {
+  background-color: #d6bd6c;
+  transform: scale(1.1);
+}
+
+.text {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  visibility: hidden;
+  opacity: 0;
+  color: #eeeeee;
+  font-weight: 500;
+}
+
+.asideLink {
+  padding: 8px;
+  position: relative;
+  left: 0.3rem;
+  display: flex;
+  align-items: center;
+  border-radius: 25px 0 0 25px;
+  background: linear-gradient(180deg, #303053, #1f2e57);
+  transition: background-color 0.3s ease;
+}
+
+.eeeee:hover {
+  width: 10rem;
+}
+.asideLink:hover .text {
+  margin-left: 20px;
+  scale: 1.05;
+  color: #d6bd6c;
+}
+.eeeee:hover .text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.ConModalLogin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  transition: opacity 0.3s ease;
+}
+
+.openLoginModal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.closeLoginModal {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.conForm {
+  position: relative;
+  width: 50%;
+  height: 60vh;
+  border-radius: 25px;
+  background: linear-gradient(180deg, #1a1a2e, #16213e); /* เปลี่ยนเป็นสีเข้ม */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  border: 1px solid #d6bd6c; /* ใช้สีทองเพื่อ contrast */
+}
+
+.btnCloseModal {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  background: transparent;
+  color: #d6bd6c;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.BGLogin{
+ background-color: #1a1a2e;
+}
+
+.BGRegis{
+  background: #16213e;
+}
+
+.conFormOpen {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  border-radius: 25px 0 0 25px;
+  padding-top: 2rem;
+}
+
+.conFormClose{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  border-radius: 0 25px 25px 0;
+  padding-top: 2rem;
+}
+
+.formOpen{
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.headForm{
+  top: -3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  color: #d6bd6c;
+  font-size: 80px;
+  font-family: "Tagesschrift", system-ui;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 2rem;
+}
+
+.lineBetween{
+  position: absolute;
+  height: 50%;
+  right: 0;
+  top: 25%;
+  border-left: solid 1px #d6bd6c;
+}
+
+.conimg{
+  margin-inline: auto;
+}
+
+.conInput {
+  position: relative;
+  width: 50%;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input01 {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #d6bd6c;
+  background: transparent;
+  color: #eeeeee;
+  padding: 1rem 0.75rem 0.25rem 0.75rem;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.labelCustom {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.75rem;
+  font-size: 14px;
+  color: #d6bd6c;
+  pointer-events: none;
+  transition: 0.3s;
+  background-color: #16213e;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+.input01:focus + .labelCustom,
+.input01:not(:placeholder-shown) + .labelCustom {
+  top: -0.5rem;
+  font-size: 11px;
+  color: #e7dcb7;
+}
+
+.sssss {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #eeeeee;
+  width: 50%;
+  margin-inline: auto;
+  font-size: 12px;
+}
+
+.btnSubLog {
+  margin: 1rem auto;
+  background-color: #d6bd6c;
+  color: #1a1a2e;
+  border: none;
+  padding: 0.5rem 1rem;
+  width: 50%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btnSubLog:hover {
+  background-color: #f0d98c;
+}
+
+.text00{
+  color: #d6bd6c;
+}
+
+.formClose{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.none{
+  width: 0%;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
