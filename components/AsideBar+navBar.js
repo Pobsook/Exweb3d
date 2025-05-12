@@ -8,14 +8,13 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-// เส้นทางแบบโค้ง
 const curve = new THREE.CatmullRomCurve3([
-  new THREE.Vector3(-8, 3, -10),   // จุดเริ่มต้น
-  new THREE.Vector3(-5, 6, -7),
-  new THREE.Vector3(-1, 7, -5.5),
-  new THREE.Vector3(2, 3, -3),
-  new THREE.Vector3(4, -1, -1),
-  new THREE.Vector3(5, -3.5, 1)      // จุดสุดท้าย
+  new THREE.Vector3(-6, 3, -14),
+  new THREE.Vector3(-4, 5, -11),
+  new THREE.Vector3(-1, 7, -8),
+  new THREE.Vector3(1, 4, -5),
+  new THREE.Vector3(3, 0, -2),
+  new THREE.Vector3(5, -3.5, 1)
 ]);
 
 function Model() {
@@ -26,15 +25,14 @@ function Model() {
   useFrame(() => {
     if (!group.current) return;
 
-    progressRef.current += 0.005;
+    progressRef.current += 0.01;
     if (progressRef.current > 1) progressRef.current = 1;
 
     const position = curve.getPoint(progressRef.current);
-    const tangent = curve.getTangent(progressRef.current); // ทิศทางการเคลื่อนที่
+    const tangent = curve.getTangent(progressRef.current);
 
     group.current.position.copy(position);
 
-    // หมุนตามทิศทางเส้นโค้ง (เฉพาะแกน Y)
     const angleY = Math.atan2(tangent.x, tangent.z);
     group.current.rotation.y = angleY;
   });
@@ -70,7 +68,7 @@ export default function AsideBar(){
         <div style={{display: "flex"}}>
             <nav className={Style.navbar}>
                 <Link className={Style.navlink} href="/"><Image className={Style.imgNav} src="/icon/home.png" width={25} height={25} alt="Home"/></Link>
-                <div className={`${Style.navlink} ${Style.searchBar}`}><Image className={Style.imgNav} src="/icon/search-no-border.png" width={25} height={25} alt="Search"/><input className={Style.inputSearch} type="search"/></div>
+                <div className={`${Style.navlink} ${Style.searchBar}`}><Image className={Style.imgNav} src="/icon/search-no-border.png" width={25} height={25} alt="Search"/><input className={Style.inputSearch} type="search" placeholder="ค้นหาสินค้า"/></div>
                 <button onClick={openLoginModal} className={Style.navlink}><Image className={Style.imgNav} src="/icon/login.png" width={25} height={25} alt="Login"/></button>
             </nav>  
             <aside className={Style.eeeee}>
@@ -92,13 +90,13 @@ export default function AsideBar(){
                     <div className={`${isLogInOpen ? Style.formOpen : Style.none}`} >
                         <h2 className={Style.headForm}>LOGIN</h2>
                         <div className={Style.lineBetween}/>
-                        <div className={Style.conInput} style={{marginTop: "5rem"}}>
+                        <div className={`${Style.conInput}  ${Style.BGLogin}`} style={{marginTop: "5rem"}}>
                             <input className={Style.input01} type="email" id="emailLogin" placeholder=" " required></input>
-                            <label htmlFor="emailLogin" className={Style.labelCustom}>email</label>
+                            <label htmlFor="emailLogin" className={`${Style.labelCustom}`}>email</label>
                         </div>
-                        <div className={Style.conInput}>
+                        <div className={`${Style.conInput}  ${Style.BGLogin}`}>
                             <input className={Style.input01} type="password" id="passwordLogin" placeholder=" " required></input>
-                            <label htmlFor="passwordLogin" className={Style.labelCustom}>password</label>
+                            <label htmlFor="passwordLogin" className={`${Style.labelCustom}`}>password</label>
                         </div>
                         <div className={Style.sssss}>
                             <label>
@@ -120,21 +118,21 @@ export default function AsideBar(){
 
                 <div className={`${isLogInOpen ? Style.conFormClose : Style.conFormOpen} ${Style.BGRegis}`}>
                     <div className={`${isLogInOpen ? Style.none : Style.formOpen}`}>
-                        <h2 className={Style.headForm}>REGISTER</h2>
+                        <h2 style={{fontSize: "50px", top: "-2.5rem"}} className={Style.headForm}>REGISTRATION</h2>
                         <div className={Style.lineBetween}/>
-                        <div className={Style.conInput} style={{marginTop: "4rem"}}>
+                        <div className={`${Style.conInput} ${Style.BGRegis}`} style={{marginTop: "4rem"}}>
                             <input className={Style.input01} type="text" id="usernameRegis" placeholder=" " required></input>
                             <label htmlFor="usernameRegis" className={Style.labelCustom}>username</label>
                         </div>
-                        <div className={Style.conInput}>
+                        <div className={`${Style.conInput} ${Style.BGRegis}`}>
                             <input className={Style.input01} type="email" id="emailRegis" placeholder=" " required></input>
                             <label htmlFor="emailRegis" className={Style.labelCustom}>email</label>
                         </div>
-                        <div className={Style.conInput}>
+                        <div className={`${Style.conInput} ${Style.BGRegis}`}>
                             <input className={Style.input01} type="password" id="passwordRegis1" placeholder=" " required></input>
                             <label htmlFor="passwordRegis1" className={Style.labelCustom}>password1</label>
                         </div>
-                        <div className={Style.conInput}>
+                        <div className={`${Style.conInput} ${Style.BGRegis}`}>
                             <input className={Style.input01} type="password" id="passwordRegis2" placeholder=" " required></input>
                             <label htmlFor="passwordRegis2" className={Style.labelCustom}>password2</label>
                         </div>
